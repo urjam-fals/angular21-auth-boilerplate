@@ -2,8 +2,8 @@ import { ChangeDetectorRef, Component, OnInit, OnDestroy, Input } from '@angular
 import { Router, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { Alert, AlertType } from '@app/_models';
-import { AlertService } from '@app/_services';
+import { Alert, AlertType } from '@app/_models/alert';
+import { AlertService } from '@app/_services/alert.service';
 
 @Component({ selector: 'alert', templateUrl: 'alert.component.html', standalone: false })
 
