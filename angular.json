@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-15-example": {
+    "angular-21-boilerplate": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
