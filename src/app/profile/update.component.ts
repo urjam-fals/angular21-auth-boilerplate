@@ -15,6 +15,8 @@ export class UpdateComponent implements OnInit {
     submitted = false;
     deleting = false;
 
+    loading = false;
+    
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
