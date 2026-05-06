@@ -130,7 +130,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
             account.dateCreated = new Date().toISOString();
             account.verificationToken = new Date().getTime().toString();
-            account.isVerified = false;
+            account.isVerified = true;
             account.refreshTokens = [];
             delete account.confirmPassword;
             accounts.push(account);
@@ -150,6 +150,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
             return ok();
         }
+        
         function verifyEmail() {
             const { token } = body;
             const account = accounts.find(x => !!x.verificationToken && x.verificationToken === token);
