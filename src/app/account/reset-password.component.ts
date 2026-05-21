@@ -41,17 +41,13 @@ ngOnInit() {
         // remove token from url to prevent http referer leakage
         this.router.navigate([], { relativeTo: this.route, replaceUrl: true });
 
-        this.accountService.validateResetToken(token)
-            .pipe(first())
-            .subscribe({
-                next: () => {
-                    this.token = token;
-                    this.tokenStatus = TokenStatus.Valid;
-                },
-                error: () => {
-                    this.tokenStatus = TokenStatus.Invalid;
-                }
-            });
+        if (!token) {
+            this.tokenStatus = TokenStatus.Invalid;
+            return;
+        }
+
+        this.token = token;
+        this.tokenStatus = TokenStatus.Valid;
     }
 
     // convenience getter for easy access to form fields
