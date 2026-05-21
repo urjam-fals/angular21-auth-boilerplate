@@ -16,7 +16,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.accountService.logout();
             }
 
-            const error = (err && err.error && err.error.message) || err.statusText;
+            const error = err.status === 0
+                ? 'Unable to connect to the API. Please check that the backend URL is correct, deployed, and allows requests from this site.'
+                : (err && err.error && err.error.message) || err.statusText;
             console.error(err);
             return throwError(() => error);
         }))
